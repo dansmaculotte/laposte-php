@@ -1,0 +1,31 @@
+{
+    "name": "dansmaculotte/laposte-php",
+    "description": "PHP SDK for La Poste API",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "laposte",
+        "laposte-api"
+    ],
+    "authors": [
+        {
+            "name": "Gaël Reyrol",
+            "email": "gael@dansmaculotte.fr"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "DansMaCulotte\\LaPoste\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^7.0",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.4"
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    }
+}
