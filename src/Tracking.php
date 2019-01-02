@@ -3,7 +3,7 @@
 namespace DansMaCulotte\LaPoste;
 
 /**
- * Implementation of Suivi Web Service
+ * Implementation of "Suivi" (Tracking) Web Service
  * https://developer.laposte.fr/products/suivi/latest
  */
 class Tracking extends Client
@@ -28,16 +28,16 @@ class Tracking extends Client
      * @return array
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function track($code)
+    public function track(string $code)
     {
         $response = $this->client->request(
             'GET',
             self::SERVICE_URI,
-            array(
-                'query' => array(
+            [
+                'query' => [
                     'code' => $code
-                )
-            )
+                ]
+            ]
         );
 
         $body = json_decode((string) $response->getBody(), true);
@@ -53,16 +53,16 @@ class Tracking extends Client
      * @return object
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function trackList($codeList)
+    public function trackList(array $codeList)
     {
         $response = $this->client->request(
             'GET',
             self::SERVICE_URI . "/list",
-            array(
-                'query' => array(
+            [
+                'query' => [
                     'codes' => implode(',', $codeList)
-                )
-            )
+                ]
+            ]
         );
 
         $body = json_decode((string) $response->getBody(), true);
