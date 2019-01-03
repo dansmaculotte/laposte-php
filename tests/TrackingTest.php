@@ -1,0 +1,27 @@
+<?php
+
+use PHPUnit\Framework\TestCase;
+use DansMaCulotte\LaPoste\Tracking;
+
+require 'Credentials.php';
+
+class TrackingTest extends TestCase
+{
+    public $apiKey = API_KEY;
+
+    public function testTrack()
+    {
+        $trackClient = new Tracking($this->apiKey);
+        $results = $trackClient->track('1111111111111');
+
+        print_r($results);
+    }
+
+    public function testTrackList()
+    {
+        $trackClient = new Tracking($this->apiKey);
+        $results = $trackClient->trackList(['1111111111111', '1111111111119']);
+
+        print_r($results);
+    }
+}

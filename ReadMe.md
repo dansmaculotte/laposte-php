@@ -38,6 +38,30 @@ $results = $addressControl->detail('260621288');
 print_r($results);
 ```
 
+### Tracking
+
+#### Track
+
+```php
+use DansMaCulotte\LaPoste\Tracking;
+
+$tracking = new Tracking($this->apiKey);
+$results = $tracking->track('1111111111111');
+
+print_r($results);
+```
+
+#### Detail
+
+```php
+use DansMaCulotte\LaPoste\Tracking;
+
+$tracking = new Tracking($this->apiKey);
+$results = $tracking->trackList(['1111111111111', '1111111111119']);
+
+print_r($results);
+```
+
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
