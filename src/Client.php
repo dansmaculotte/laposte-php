@@ -10,7 +10,12 @@ class Client
 
     public $client;
 
-    public function __construct($apiKey)
+    /**
+     * Construct Method
+     *
+     * @param string $apiKey La Poste Developer API Key
+     */
+    public function __construct(string $apiKey)
     {
         $this->client = new HttpClient(
             [

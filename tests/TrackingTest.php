@@ -3,7 +3,7 @@
 use PHPUnit\Framework\TestCase;
 use DansMaCulotte\LaPoste\Tracking;
 
-require 'Credentials.php';
+require_once 'Credentials.php';
 
 class TrackingTest extends TestCase
 {
@@ -20,7 +20,7 @@ class TrackingTest extends TestCase
     public function testTrackList()
     {
         $trackClient = new Tracking($this->apiKey);
-        $results = $trackClient->trackList(['1111111111111', '1111111111119']);
+        $results = $trackClient->list(['1111111111111', '1111111111119']);
 
         print_r($results);
     }

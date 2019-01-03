@@ -3,7 +3,7 @@
 use PHPUnit\Framework\TestCase;
 use DansMaCulotte\LaPoste\AddressControl;
 
-require 'Credentials.php';
+require_once 'Credentials.php';
 
 class AddressControlTest extends TestCase
 {
@@ -11,16 +11,16 @@ class AddressControlTest extends TestCase
 
     public function testFind()
     {
-        $laposteAddressControl = new AddressControl($this->apiKey);
-        $results = $laposteAddressControl->find('7 rue Mélingue 14000 Caen');
+        $addressControlClient = new AddressControl($this->apiKey);
+        $results = $addressControlClient->find('7 rue Mélingue 14000 Caen');
 
         print_r($results);
     }
 
     public function testDetail()
     {
-        $laposteAddressControl = new AddressControl($this->apiKey);
-        $results = $laposteAddressControl->detail('260621288');
+        $addressControlClient = new AddressControl($this->apiKey);
+        $results = $addressControlClient->detail('271839461');
 
         print_r($results);
     }

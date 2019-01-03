@@ -48,19 +48,19 @@ class Tracking extends Client
     /**
      * Get the status of a list of shipping from their unique tracking code.
      *
-     * @param array $codeList An array of shipping codes
+     * @param array $codes An array of shipping codes
      *
      * @return object
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function trackList(array $codeList)
+    public function list(array $codes)
     {
         $response = $this->client->request(
             'GET',
-            self::SERVICE_URI . "/list",
+            self::SERVICE_URI . '/list',
             [
                 'query' => [
-                    'codes' => implode(',', $codeList)
+                    'codes' => implode(',', $codes)
                 ]
             ]
         );

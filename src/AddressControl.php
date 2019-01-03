@@ -17,7 +17,7 @@ class AddressControl extends Client
      * 
      * @param string $apiKey La Poste Developer API Key
      */
-    public function __construct($apiKey)
+    public function __construct(string $apiKey)
     {
         parent::__construct($apiKey);
     }
@@ -28,17 +28,18 @@ class AddressControl extends Client
      * @param string $address An address located in France.
      * 
      * @return array
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function find($address)
+    public function find(string $address)
     {
         $response = $this->client->request(
             'GET',
             self::SERVICE_URI,
-            array(
-                'query' => array(
+            [
+                'query' => [
                     'q' => $address
-                )
-            )
+                ]
+            ]
         );
 
         $body = json_decode((string) $response->getBody(), true);
@@ -52,10 +53,14 @@ class AddressControl extends Client
      * @param string $code A code of an address
      * 
      * @return object
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function detail($code)
+    public function detail(string $code)
     {
-        $response = $this->client->request('GET', self::SERVICE_URI. '/' . $code);
+        $response = $this->client->request(
+            'GET',
+            self::SERVICE_URI. '/' . $code
+        );
 
         $body = json_decode((string) $response->getBody(), true);
 
