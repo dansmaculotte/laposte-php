@@ -51,13 +51,13 @@ $results = $tracking->track('1111111111111');
 print_r($results);
 ```
 
-#### Detail
+#### List
 
 ```php
 use DansMaCulotte\LaPoste\Tracking;
 
 $tracking = new Tracking($this->apiKey);
-$results = $tracking->trackList(['1111111111111', '1111111111119']);
+$results = $tracking->list(['1111111111111', '1111111111119']);
 
 print_r($results);
 ```
