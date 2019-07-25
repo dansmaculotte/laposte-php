@@ -17,10 +17,11 @@ class TestCase extends BaseTestCase
     {
         parent::setUp();
 
-        $dotenv = Dotenv::create(dirname(dirname(__FILE__)));
-        $dotenv->load();
-
-        $this->apiKey = getenv('API_KEY');
+//        $dotenv = Dotenv::create(dirname(dirname(__FILE__)));
+//        $dotenv->load();
+//
+//        $this->apiKey = getenv('API_KEY');
+        $this->apiKey = 'testing';
     }
 
     /**
