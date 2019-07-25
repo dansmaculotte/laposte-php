@@ -8,5 +8,4 @@ namespace DansMaCulotte\LaPoste;
  */
 class Pricing
 {
-
 }

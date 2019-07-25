@@ -2,8 +2,6 @@
 
 namespace DansMaCulotte\LaPoste;
 
-use DansMaCulotte\LaPoste\Client;
-
 /**
  * Implementation of ControlAdresse Web Service
  * https://developer.laposte.fr/products/controladresse/latest
@@ -14,7 +12,7 @@ class AddressControl extends Client
 
     /**
      * Construct Method
-     * 
+     *
      * @param string $apiKey La Poste Developer API Key
      */
     public function __construct(string $apiKey)
@@ -24,9 +22,9 @@ class AddressControl extends Client
 
     /**
      * Find an address matching with the selector
-     * 
+     *
      * @param string $address An address located in France.
-     * 
+     *
      * @return array
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
@@ -49,9 +47,9 @@ class AddressControl extends Client
 
     /**
      * Get details on a specific address
-     * 
+     *
      * @param string $code A code of an address
-     * 
+     *
      * @return object
      * @throws \GuzzleHttp\Exception\GuzzleException
      */

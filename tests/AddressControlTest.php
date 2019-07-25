@@ -1,7 +1,7 @@
 <?php
 
-use PHPUnit\Framework\TestCase;
 use DansMaCulotte\LaPoste\AddressControl;
+use PHPUnit\Framework\TestCase;
 
 require_once 'Credentials.php';
 

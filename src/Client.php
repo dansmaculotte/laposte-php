@@ -20,9 +20,9 @@ class Client
         $this->client = new HttpClient(
             [
                 'base_uri' =>  self::API_URL,
-                'headers' => array(
+                'headers' => [
                     'X-Okapi-Key' => $apiKey,
-                ),
+                ],
             ]
         );
     }
