@@ -1,10 +1,19 @@
 # La Poste API PHP SDK
 
-Please refer to La Poste Developer documentation for API specifications.
+[![Latest Version](https://img.shields.io/packagist/v/DansMaCulotte/laposte-php.svg?style=flat-square)](https://packagist.org/packages/dansmaculotte/laposte-php)
+[![Total Downloads](https://img.shields.io/packagist/dt/DansMaCulotte/laposte-php.svg?style=flat-square)](https://packagist.org/packages/dansmaculotte/laposte-php)
+[![Build Status](https://img.shields.io/travis/DansMaCulotte/laposte-php/master.svg?style=flat-square)](https://travis-ci.org/dansmaculotte/laposte-php)
+[![Quality Score](https://img.shields.io/scrutinizer/g/DansMaCulotte/laposte-php.svg?style=flat-square)](https://scrutinizer-ci.com/g/dansmaculotte/laposte-php)
+[![Code Coverage](https://img.shields.io/coveralls/github/DansMaCulotte/laposte-php.svg?style=flat-square)](https://coveralls.io/github/dansmaculotte/laposte-php)
 
-[Documentation](https://developer.laposte.fr/)
+> This library aims to facilitate the usage of La Poste API Services
 
 ## Installation
+
+### Requirements
+
+- PHP 7.2
+- Json Extension
 
 You can install the package via composer:
 
@@ -13,6 +22,8 @@ composer require dansmaculotte/laposte-php
 ```
 
 ## Usage
+
+[La Poste Developer Portal](https://developer.laposte.fr/)
 
 ### Address Control
 
