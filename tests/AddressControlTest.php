@@ -1,14 +1,11 @@
 <?php
 
-use DansMaCulotte\LaPoste\AddressControl;
-use PHPUnit\Framework\TestCase;
+namespace DansMaCulotte\LaPoste\Tests;
 
-require_once 'Credentials.php';
+use DansMaCulotte\LaPoste\AddressControl;
 
 class AddressControlTest extends TestCase
 {
-    public $apiKey = API_KEY;
-
     public function testFind()
     {
         $addressControlClient = new AddressControl($this->apiKey);

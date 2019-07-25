@@ -15,7 +15,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "DansMaCulotte\\LaPoste\\": "src/"
+            "DansMaCulotte\\LaPoste\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DansMaCulotte\\LaPoste\\Tests\\": "tests"
         }
     },
     "require": {
@@ -25,7 +30,8 @@
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.15",
-        "phpunit/phpunit": "^8.2"
+        "phpunit/phpunit": "^8.2",
+        "vlucas/phpdotenv": "^3.4"
     },
     "scripts": {
         "test": "@php vendor/bin/phpunit",

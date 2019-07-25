@@ -1,14 +1,11 @@
 <?php
 
-use DansMaCulotte\LaPoste\Tracking;
-use PHPUnit\Framework\TestCase;
+namespace DansMaCulotte\LaPoste\Tests;
 
-require_once 'Credentials.php';
+use DansMaCulotte\LaPoste\Tracking;
 
 class TrackingTest extends TestCase
 {
-    public $apiKey = API_KEY;
-
     public function testTrack()
     {
         $trackClient = new Tracking($this->apiKey);
