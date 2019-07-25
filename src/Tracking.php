@@ -8,6 +8,7 @@ namespace DansMaCulotte\LaPoste;
  */
 class Tracking extends Client
 {
+    /** @var string */
     const SERVICE_URI = '/suivi/v1';
 
     /**
@@ -50,7 +51,7 @@ class Tracking extends Client
      *
      * @param array $codes An array of shipping codes
      *
-     * @return object
+     * @return array
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function list(array $codes)

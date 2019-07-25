@@ -8,6 +8,7 @@ namespace DansMaCulotte\LaPoste;
  */
 class AddressControl extends Client
 {
+    /** @var string */
     const SERVICE_URI = '/controladresse/v1/adresses';
 
     /**
@@ -50,7 +51,7 @@ class AddressControl extends Client
      *
      * @param string $code A code of an address
      *
-     * @return object
+     * @return array
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function detail(string $code)

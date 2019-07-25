@@ -3,6 +3,9 @@
 namespace DansMaCulotte\LaPoste\Tests;
 
 use Dotenv\Dotenv;
+use GuzzleHttp\Client;
+use GuzzleHttp\Handler\MockHandler;
+use GuzzleHttp\HandlerStack;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 
 class TestCase extends BaseTestCase
@@ -18,5 +21,17 @@ class TestCase extends BaseTestCase
         $dotenv->load();
 
         $this->apiKey = getenv('API_KEY');
+    }
+
+    /**
+     * @param MockHandler $mock
+     * @return Client
+     */
+    protected function buildClientMock(MockHandler $mock)
+    {
+        $handler = HandlerStack::create($mock);
+        $client = new Client(['handler' => $handler]);
+
+        return $client;
     }
 }

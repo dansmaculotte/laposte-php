@@ -6,8 +6,10 @@ use GuzzleHttp\Client as HttpClient;
 
 class Client
 {
+    /** @var string */
     const API_URL = 'https://api.laposte.fr';
 
+    /** @var HttpClient */
     public $client;
 
     /**
