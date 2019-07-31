@@ -4,13 +4,13 @@ namespace DansMaCulotte\LaPoste;
 
 use GuzzleHttp\Client as HttpClient;
 
-class Client
+class LaPoste
 {
     /** @var string */
     const API_URL = 'https://api.laposte.fr';
 
     /** @var HttpClient */
-    public $client;
+    public $httpClient;
 
     /**
      * Construct Method
@@ -19,7 +19,7 @@ class Client
      */
     public function __construct(string $apiKey)
     {
-        $this->client = new HttpClient(
+        $this->httpClient = new HttpClient(
             [
                 'base_uri' =>  self::API_URL,
                 'headers' => [

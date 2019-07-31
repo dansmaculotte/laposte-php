@@ -3,6 +3,7 @@
 namespace DansMaCulotte\LaPoste\Tests;
 
 use DansMaCulotte\LaPoste\AddressControl;
+use DansMaCulotte\LaPoste\Resources\Address;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\Psr7\Response;
 
@@ -24,7 +25,7 @@ class AddressControlTest extends TestCase
         ]);
 
         $addressControlClient = new AddressControl($this->apiKey);
-        $addressControlClient->client = $this->buildClientMock($mock);
+        $addressControlClient->httpClient = $this->buildClientMock($mock);
 
         $results = $addressControlClient->find('7 rue Mélingue 14000 Caen');
 
@@ -57,19 +58,10 @@ class AddressControlTest extends TestCase
         ]);
 
         $addressControlClient = new AddressControl($this->apiKey);
-        $addressControlClient->client = $this->buildClientMock($mock);
+        $addressControlClient->httpClient = $this->buildClientMock($mock);
 
-        $results = $addressControlClient->detail('365771552');
+        $result = $addressControlClient->detail('365771552');
 
-        $this->assertArrayHasKey('destinataire', $results);
-        $this->assertArrayHasKey('pointRemise', $results);
-        $this->assertArrayHasKey('numeroVoie', $results);
-        $this->assertArrayHasKey('libelleVoie', $results);
-        $this->assertArrayHasKey('lieuDit', $results);
-        $this->assertArrayHasKey('codePostal', $results);
-        $this->assertArrayHasKey('codeCedex', $results);
-        $this->assertArrayHasKey('commune', $results);
-        $this->assertArrayHasKey('blocAdresse', $results);
-        $this->assertCount(2, $results['blocAdresse']);
+        $this->assertInstanceOf(Address::class, $result);
     }
 }

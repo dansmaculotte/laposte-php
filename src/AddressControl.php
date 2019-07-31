@@ -2,11 +2,13 @@
 
 namespace DansMaCulotte\LaPoste;
 
+use DansMaCulotte\LaPoste\Resources\Address;
+
 /**
  * Implementation of ControlAdresse Web Service
  * https://developer.laposte.fr/products/controladresse/latest
  */
-class AddressControl extends Client
+class AddressControl extends LaPoste
 {
     /** @var string */
     const SERVICE_URI = '/controladresse/v1/adresses';
@@ -31,7 +33,7 @@ class AddressControl extends Client
      */
     public function find(string $address)
     {
-        $response = $this->client->request(
+        $response = $this->httpClient->request(
             'GET',
             self::SERVICE_URI,
             [
@@ -51,18 +53,28 @@ class AddressControl extends Client
      *
      * @param string $code A code of an address
      *
-     * @return array
+     * @return Address
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function detail(string $code)
     {
-        $response = $this->client->request(
+        $response = $this->httpClient->request(
             'GET',
             self::SERVICE_URI. '/' . $code
         );
 
         $body = json_decode((string) $response->getBody(), true);
 
-        return $body;
+        return new Address(
+            $body['destinataire'],
+            $body['pointRemise'],
+            $body['numeroVoie'],
+            $body['libelleVoie'],
+            $body['lieuDit'],
+            $body['codePostal'],
+            $body['codeCedex'],
+            $body['commune'],
+            $body['blocAdresse']
+        );
     }
 }
